@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import SubNavbar from "@/components/SubNavbar";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/utils/SessionProvider"
 import "./globals.css";
@@ -8,8 +9,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Team 405 Hotel",
-  description: "Team 405 Hotel",
+  title: "Hotel 405",
+  description: "Hotel 405 next js project",
 };
 
 export default async function RootLayout({
@@ -22,8 +23,9 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
           <SessionProvider session={session}>
-            <div className="mx-auto max-w-5xl text-2xl gap-2 mb-10">
+            <div className="mx-auto text-2xl gap-2 mb-10">
               <Navbar />
+              <SubNavbar />
               {children}
             </div>
           </SessionProvider>
